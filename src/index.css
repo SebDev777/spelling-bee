@@ -1,0 +1,28 @@
+/* Custom scrollbar styles */
+.custom-scrollbar {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Scrollbar container */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 10px;  /* Horizontal scrollbar width */
+}
+
+/* Scrollbar track */
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;  /* Light gray background */
+    border-radius: 10px;
+}
+
+/* Scrollbar thumb (the part you drag) */
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #888;  /* Dark gray */
+    border-radius: 10px;
+    border: 2px solid #f1f1f1;  /* Adds a border around the thumb */
+}
+
+/* Scrollbar thumb on hover */
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #555;  /* Darker gray when hovered */
+}
