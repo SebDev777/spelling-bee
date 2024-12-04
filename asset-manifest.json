@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/spelling-bee/static/css/main.56e63be2.css",
-    "main.js": "/spelling-bee/static/js/main.9c114295.js",
+    "main.js": "/spelling-bee/static/js/main.9c05b79b.js",
     "static/media/logo-escudo.png": "/spelling-bee/static/media/logo-escudo.b46312f05eb6f5688870.png",
     "static/media/bee.png": "/spelling-bee/static/media/bee.2e5ae0b2190ff0e523ce.png",
     "static/media/ReactLogo.png": "/spelling-bee/static/media/ReactLogo.e648a71158884495e955.png",
     "static/media/BootstrapLogo.png": "/spelling-bee/static/media/BootstrapLogo.3c4e1a5d3a149087b144.png",
     "index.html": "/spelling-bee/index.html",
     "main.56e63be2.css.map": "/spelling-bee/static/css/main.56e63be2.css.map",
-    "main.9c114295.js.map": "/spelling-bee/static/js/main.9c114295.js.map"
+    "main.9c05b79b.js.map": "/spelling-bee/static/js/main.9c05b79b.js.map"
   },
   "entrypoints": [
     "static/css/main.56e63be2.css",
-    "static/js/main.9c114295.js"
+    "static/js/main.9c05b79b.js"
   ]
 }
