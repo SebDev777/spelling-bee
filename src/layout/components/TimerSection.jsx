@@ -3,7 +3,7 @@ import UseMainContext from "../../contexts/MainContext";
 
 function Btn({cl, text, onClick, style}) {
     return (
-      <button type="button" class={"btn " + cl} onClick={onClick} style={style}> {text} </button>
+      <button type="button" class={"btn btn-sm " + cl} onClick={onClick} style={style}> {text} </button>
     )
   }
   
@@ -71,9 +71,9 @@ export default function TimerSection() {
                 <Btn cl="btn-warning mx-2" text={"15s"} onClick={() => {setMaxTime(15); setSelected(2)}} style={{transform: selected===2 ? "scale(1.25)" : "scale(1)", color: "white"}} />
                 <Btn cl="btn-warning mx-2" text={"10s"} onClick={() => {setMaxTime(10); setSelected(3)}} style={{transform: selected===3 ? "scale(1.25)" : "scale(1)", color: "white"}} />
 
-                <Btn cl="btn-primary btn-sm mx-2" text={"Start"} onClick={startTimer} disabled={isRunning} style={{color: "white"}} />
-                <Btn cl="btn-primary btn-sm mx-2" text={"Pause"} onClick={pauseTimer} disabled={!isRunning} style={{color: "white"}} />
-                <Btn cl="btn-primary btn-sm mx-2" text={"Restart"} onClick={resetTimer} style={{color: "white"}} />
+                <Btn cl="btn-primary mx-2" text={"Start"} onClick={startTimer} disabled={isRunning} style={{color: "white"}} />
+                <Btn cl="btn-primary mx-2" text={"Pause"} onClick={pauseTimer} disabled={!isRunning} style={{color: "white"}} />
+                <Btn cl="btn-primary mx-2" text={"Restart"} onClick={resetTimer} style={{color: "white"}} />
             </div>
         </div>
     </div>
