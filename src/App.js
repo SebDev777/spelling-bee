@@ -2,88 +2,48 @@ import React, { useState, createContext, useEffect } from "react";
 import TopPage from "./layout/TopPage";
 import CenterPage from "./layout/CenterPage";
 
-import swal from "@sweetalert/with-react";
-import "./App.css"
-
+import "./App.css";
 
 import { MainContextProvider } from "./contexts/MainContext";
+import VerificationPrompt from "./logic/Verification";
 
-const password = "OK"
-
-function passwordPrompt() {
-  return swal({
-    dangerMode: true,
-    title: "Verification",
-    content: {
-      element: "input",
-      attributes: {
-        placeholder: "Type the password here.",
-      },
-    },
-  }).then(v => {
-    console.log(v)
-    if (!v || v === "") {
-      swal({
-        dangerMode: true,
-        title: "Type a password",
-        buttons: false
-      }).then(passwordPrompt)
-      return
-    }
-    if (v !== password) {
-      swal({
-        dangerMode: true,
-        title: "Incorrect password",
-        buttons: false
-      }).then(passwordPrompt)
-    } else {
-      swal({
-        icon: "success",
-        title: "Entered!",
-        buttons: false,
-        content: (
-          <div>
-            <h4>Now you can view & use the page.</h4>
-          </div>
-        )
-      })
-    }
-  })
+function Main() {
+  return (
+    <div className="App">
+      <div className="background-container">
+        <div className="content">
+          <TopPage />
+          <hr
+            class="border border-warning border-5"
+            style={{ borderColor: "rgb(238, 212, 159)" }}
+          ></hr>
+          <CenterPage />
+        </div>
+      </div>
+    </div>
+  );
 }
 
-function VERIFICATION() {
-  swal({
-    icon: "info",
-    title: "Disclaimer",
-    content: (
-      <div>
-        <h4>This page was made to medium or big screen sizes, small sizes may have display problems.</h4>
+function WaitingPage() {
+  return (
+    <div class="d-flex justify-content-center">
+      <div class="spinner-border" role="status" style={{width: "10rem", height: "10rem"}}>
+        <span class="visually-hidden">Loading...</span>
       </div>
-    )
-  }).then(() => {
-    passwordPrompt()
-  })
+    </div>
+  );
 }
 
 function App() {
+  const [verified, setVerified] = useState(false);
+
   useEffect(() => {
-    VERIFICATION()
-  }, [])
+    VerificationPrompt(setVerified);
+  }, []);
 
   return (
     <MainContextProvider>
-      <div className="App">
-        <div className="background-container">
-          <div className="content">
-            <TopPage />
-            <hr
-              class="border border-warning border-5"
-              style={{ borderColor: "rgb(238, 212, 159)" }}
-            ></hr>
-            <CenterPage />
-          </div>
-        </div>
-      </div>
+      {verified ? <Main /> : <WaitingPage />}
     </MainContextProvider>
   );
 }

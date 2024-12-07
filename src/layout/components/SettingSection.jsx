@@ -10,7 +10,8 @@ import {
   ViewWordListHandle,
   DeleteAllWordsHandle,
   ResetWordSectionHandle,
-  FileWordsAddHandle
+  FileWordsAddHandle,
+  WordDeletingSectionHandle
 } from "../../logic/WordsHandle";
 
 import * as BootstrapUtils from "../../components/BootstrapUtilities";
@@ -35,6 +36,8 @@ export default function SettingSection() {
     setWordListBackUp,
     SpecialWordSpelling,
     setSpecialWordSpelling,
+    WordDeletingSectionActive, 
+    setWordDeletingSectionActive
   } = UseMainContext();
 
   const [ FileWords, setFileWords ] = useState([])
@@ -92,6 +95,16 @@ export default function SettingSection() {
           checked={SpecialWordSpelling}
           onChange={() => {
             setSpecialWordSpelling(!SpecialWordSpelling); // Toggle the checkbox state
+          }}
+        />
+      </div>
+
+      <div class="form-check form-switch mt-2">
+        <BootstrapUtils.toggleInput
+          content={`Enable word deleting section`}
+          checked={WordDeletingSectionActive}
+          onChange={() => {
+            setWordDeletingSectionActive(!WordDeletingSectionActive); // Toggle the checkbox state
           }}
         />
       </div>

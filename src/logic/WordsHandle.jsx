@@ -186,7 +186,7 @@ export function FileWordsAddHandle(FileWords, WordList, setWordList) {
     content: <div>{fileList}</div>,
   }).then((value) => {
     if (value !== "Accept") return
-    setWordList([...WordList, FileWords])
+    setWordList([...WordList, ...FileWords])
     swal({
       title: "Successfully added these items:",
       icon: "success",

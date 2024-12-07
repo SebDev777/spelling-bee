@@ -21,6 +21,7 @@ export function MainContextProvider({ children }) {
   const [SpecialWordSpelling, setSpecialWordSpelling] = useState(true)
   const [CountDownSelectedTime, setCountDownSelectedTime] = useState(30)
   const [CountDown, setCountDown] = useState(CountDownSelectedTime)
+  const [WordDeletingSectionActive, setWordDeletingSectionActive] = useState(false)
 
   return (
     <MainContext.Provider
@@ -34,7 +35,8 @@ export function MainContextProvider({ children }) {
         WordListBackUp, setWordListBackUp,
         SpecialWordSpelling, setSpecialWordSpelling,
         CountDown, setCountDown,
-        CountDownSelectedTime, setCountDownSelectedTime
+        CountDownSelectedTime, setCountDownSelectedTime,
+        WordDeletingSectionActive, setWordDeletingSectionActive
       }}
     >
       {children}

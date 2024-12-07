@@ -7,6 +7,7 @@ import PlaySection from "./components/PlaySection";
 import SettingSection from "./components/SettingSection";
 import TimerSection from "./components/TimerSection";
 import WordSection from "./components/WordSection";
+import WordDeletingSection from "./components/WordDeletingSection";
 
 export default function CenterPage() {
   const {
@@ -16,7 +17,9 @@ export default function CenterPage() {
     setWordHistory,
     WordHistoryLength,
     WordList,
-  } = UseMainContext()
+    WordDeletingSectionActive,
+    setWordDeletingSectionActive,
+  } = UseMainContext();
 
   useEffect(() => {
     console.log(WordHistory);
@@ -27,11 +30,17 @@ export default function CenterPage() {
     <div className="container-fluid">
       <div className="row">
         <SettingSection />
-        <WordSection />
-        <div className="col mx-5 col-lg-4">
-          <TimerSection />
-          <PlaySection />
-        </div>
+        {!WordDeletingSectionActive ? (
+          <>
+            <WordSection />
+            <div className="col mx-5 col-lg-4">
+              <TimerSection />
+              <PlaySection />
+            </div>
+          </>
+        ) : (
+          <WordDeletingSection />
+        )}
       </div>
     </div>
   );
