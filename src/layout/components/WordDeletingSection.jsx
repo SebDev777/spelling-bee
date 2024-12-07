@@ -3,18 +3,6 @@ import UseMainContext from "../../contexts/MainContext";
 import swal from "sweetalert";
 
 export default function WordDeletingSection() {
-  return (
-    <div className="col mx-8 col-lg-9">
-      <div class="card text-center">
-        <div class="card-body">
-          <Content />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Content() {
   const {
     CurrentWord,
     setCurrentWord,
@@ -35,6 +23,29 @@ function Content() {
     WordDeletingSectionActive,
     setWordDeletingSectionActive,
   } = UseMainContext();
+
+  return (
+    <div className="col mx-8 col-lg-9">
+      <div class="card text-center">
+        <div class="card-body">
+          <Content WordList={WordList} setWordList={setWordList} />
+          <button
+            type="button"
+            class="btn btn-primary btn-sm mx-1 mt-2"
+            onClick={() =>
+              setWordDeletingSectionActive(!WordDeletingSectionActive)
+            }
+            style={{ padding: "1% 4%", fontSize: "1rem"}}
+          >
+            {"Go back <<"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Content(WordList, setWordList) {
 
   function handleDelete(word) {
     swal({
