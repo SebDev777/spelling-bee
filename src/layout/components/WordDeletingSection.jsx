@@ -45,7 +45,7 @@ export default function WordDeletingSection() {
   );
 }
 
-function Content(WordList, setWordList) {
+function Content({WordList, setWordList}) {
 
   function handleDelete(word) {
     swal({
