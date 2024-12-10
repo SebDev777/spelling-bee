@@ -3,12 +3,7 @@ import swal from "@sweetalert/with-react";
 
 function WordListHistory({ active, word }) {
   return (
-    <li
-      class={
-        "d-flex justify-content-between align-items-center list-group-item" +
-        active
-      }
-    >
+    <li class={"d-flex justify-content-between align-items-center list-group-item" + active}>
       {word}
     </li>
   );
@@ -63,8 +58,8 @@ export function DeleteAllWordsHandle(WordList, setWordList, setWordListBackUp) {
     buttons: true,
     dangerMode: true,
   }).then((willDelete) => {
-    if (willDelete) {
-      setWordListBackUp(WordList);
+    if (!willDelete) return swal("The list is safe!");
+    setWordListBackUp(WordList);
       setWordList([]);
       swal({
         buttons: {
@@ -80,9 +75,6 @@ export function DeleteAllWordsHandle(WordList, setWordList, setWordListBackUp) {
         ),
         icon: "success",
       });
-    } else {
-      swal("The list is safe!");
-    }
   });
 }
 
@@ -113,22 +105,22 @@ export function ViewWordListHandle(WordList, setWordList, WordListBackUp) {
         WordAddHandle(WordList, setWordList);
         break;
       case "Restore":
-        if (WordListBackUp.length > 0) {
-          swal({
-            title: "You are about to add:",
-            dangerMode: true,
-            icon: "warning",
-            content: <div>{VisualizeList(WordListBackUp)}</div>,
-          }).then((value) => {
-            if (!value) return;
-            setWordList(WordListBackUp);
-            swal("Successfully added the words in the back-up!", {
-              icon: "success",
-            });
-          });
-        } else {
-          NO_BACKUP_AVAIABLE();
+        if (WordListBackUp.length < 0) {
+          NO_BACKUP_AVAIABLE()
+          break
         }
+        swal({
+          title: "You are about to add:",
+          dangerMode: true,
+          icon: "warning",
+          content: <div>{VisualizeList(WordListBackUp)}</div>,
+        }).then((value) => {
+          if (!value) return;
+          setWordList(WordListBackUp);
+          swal("Successfully added the words in the back-up!", {
+            icon: "success",
+          });
+        });
         break;
       default:
         break;
@@ -186,13 +178,14 @@ export function FileWordsAddHandle(FileWords, WordList, setWordList) {
     content: <div>{fileList}</div>,
   }).then((value) => {
     if (value !== "Accept") return
-    setWordList([...WordList, ...FileWords])
+    const uniqueFileWords = [...new Set(FileWords)]
+    const newWordList = [...WordList, ...uniqueFileWords]
+    const uniqueNewWordList = [...new Set(newWordList)]
+    setWordList([...uniqueNewWordList])
     swal({
-      title: "Successfully added these items:",
+      title: "Successfully added these items, excluded words if duplicated.",
       icon: "success",
-      content: (<div>{
-        VisualizeList(FileWords)
-      }</div>),
+      content: (<div>{VisualizeList(uniqueFileWords)}</div>),
     }).then(() => {
       swal({
         title: "Added these:",
@@ -207,7 +200,7 @@ export function FileWordsAddHandle(FileWords, WordList, setWordList) {
           }
         },
         content: (<div>
-          {VisualizeList(FileWords)}
+          {VisualizeList(uniqueFileWords)}
         </div>)
       }).then((value) => {
         if (value !== "reverse") return
