@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import UseMainContext from "../../contexts/MainContext"
 
 import {
-  special,
   spelling as spells,
   special as Sspells,
 } from "../../logic/WordSpelling";
@@ -47,17 +46,12 @@ export default function WordSection() {
 
   const {
     CurrentWord,
-    setCurrentWord,
     WordHistory,
     setWordHistory,
     WordHistoryEnabled,
-    setWordHistoryEnabled,
     SpellingViewEnabled,
-    setSpellingViewEnabled,
     WordHistoryLength,
-    setWordHistoryLength,
     SpecialWordSpelling,
-    setSpecialWordSpelling
   } = UseMainContext()
 
   useEffect(() => {

@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import UseMainContext from "../../contexts/MainContext";
 
 import * as logos from "../../components/Logos";
-import swal from "sweetalert";
 
 export default function PlaySection() {
   const { WordList, setCurrentWord } = UseMainContext();

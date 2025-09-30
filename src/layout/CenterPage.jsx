@@ -1,6 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
-
-import * as bsUtils from "../components/BootstrapUtilities";
+import { useEffect } from "react";
 
 import UseMainContext from "../contexts/MainContext";
 import PlaySection from "./components/PlaySection";
@@ -11,14 +9,9 @@ import WordDeletingSection from "./components/WordDeletingSection";
 
 export default function CenterPage() {
   const {
-    CurrentWord,
-    setCurrentWord,
     WordHistory,
     setWordHistory,
-    WordHistoryLength,
-    WordList,
     WordDeletingSectionActive,
-    setWordDeletingSectionActive,
   } = UseMainContext();
 
   useEffect(() => {

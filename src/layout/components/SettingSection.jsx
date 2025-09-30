@@ -1,6 +1,7 @@
 import * as bsUtils from "../../components/BootstrapUtilities";
 
-import React, { useState } from "react";
+import { useState } from "react";
+
 import Credits from "../Credits";
 
 import UseMainContext from "../../contexts/MainContext";
@@ -10,30 +11,20 @@ import {
   ViewWordListHandle,
   DeleteAllWordsHandle,
   ResetWordSectionHandle,
-  FileWordsAddHandle,
-  WordDeletingSectionHandle
+  FileWordsAddHandle
 } from "../../logic/WordsHandle";
 
 import * as BootstrapUtils from "../../components/BootstrapUtilities";
 
-import swal from "sweetalert";
-
 export default function SettingSection() {
   const {
-    CurrentWord,
-    setCurrentWord,
-    WordHistory,
-    setWordHistory,
     WordHistoryEnabled,
     setWordHistoryEnabled,
     SpellingViewEnabled,
     setSpellingViewEnabled,
-    WordHistoryLength,
     setWordHistoryLength,
     WordList,
     setWordList,
-    WordListBackUp,
-    setWordListBackUp,
     SpecialWordSpelling,
     setSpecialWordSpelling,
     WordDeletingSectionActive, 

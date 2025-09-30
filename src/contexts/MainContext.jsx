@@ -18,7 +18,7 @@ export function MainContextProvider({ children }) {
     "Cold",
   ]);
   const [WordListBackUp, setWordListBackUp] = useState([]);
-  const [SpecialWordSpelling, setSpecialWordSpelling] = useState(true)
+  const [SpecialWordSpelling, setSpecialWordSpelling] = useState(false)
   const [CountDownSelectedTime, setCountDownSelectedTime] = useState(30)
   const [CountDown, setCountDown] = useState(CountDownSelectedTime)
   const [WordDeletingSectionActive, setWordDeletingSectionActive] = useState(false)

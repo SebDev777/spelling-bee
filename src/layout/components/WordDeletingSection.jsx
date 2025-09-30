@@ -4,22 +4,8 @@ import swal from "sweetalert";
 
 export default function WordDeletingSection() {
   const {
-    CurrentWord,
-    setCurrentWord,
-    WordHistory,
-    setWordHistory,
-    WordHistoryEnabled,
-    setWordHistoryEnabled,
-    SpellingViewEnabled,
-    setSpellingViewEnabled,
-    WordHistoryLength,
-    setWordHistoryLength,
     WordList,
     setWordList,
-    WordListBackUp,
-    setWordListBackUp,
-    SpecialWordSpelling,
-    setSpecialWordSpelling,
     WordDeletingSectionActive,
     setWordDeletingSectionActive,
   } = UseMainContext();

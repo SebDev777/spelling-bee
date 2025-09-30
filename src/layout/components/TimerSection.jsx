@@ -67,9 +67,10 @@ export default function TimerSection() {
         <div class="card-body">
             <button type="button" class="btn btn-outline-warning btn-custom" style={{padding: "5% 40%", color: col , fontSize: size, fontFamily: "sans-serif"}}>{timeDisplay}</button>
             <div className="container mt-3">
-                <Btn cl="btn-warning mx-2" text={"30s"} onClick={() => {setMaxTime(30); setSelected(1)}} style={{transform: selected===1 ? "scale(1.25)" : "scale(1)", color: "white"}} />
-                <Btn cl="btn-warning mx-2" text={"15s"} onClick={() => {setMaxTime(15); setSelected(2)}} style={{transform: selected===2 ? "scale(1.25)" : "scale(1)", color: "white"}} />
-                <Btn cl="btn-warning mx-2" text={"10s"} onClick={() => {setMaxTime(10); setSelected(3)}} style={{transform: selected===3 ? "scale(1.25)" : "scale(1)", color: "white"}} />
+                <Btn cl="btn-warning mx-2" text={"40s"} onClick={() => {setMaxTime(40); setSelected(1)}} style={{transform: selected===1 ? "scale(1.25)" : "scale(1)", color: "white"}} />
+                <Btn cl="btn-warning mx-2" text={"30s"} onClick={() => {setMaxTime(30); setSelected(2)}} style={{transform: selected===2 ? "scale(1.25)" : "scale(1)", color: "white"}} />
+                <Btn cl="btn-warning mx-2" text={"20s"} onClick={() => {setMaxTime(20); setSelected(3)}} style={{transform: selected===3 ? "scale(1.25)" : "scale(1)", color: "white"}} />
+                <Btn cl="btn-warning mx-2" text={"10s"} onClick={() => {setMaxTime(10); setSelected(4)}} style={{transform: selected===4 ? "scale(1.25)" : "scale(1)", color: "white"}} />
 
                 <Btn cl="btn-primary mx-2" text={"Start"} onClick={startTimer} disabled={isRunning} style={{color: "white"}} />
                 <Btn cl="btn-primary mx-2" text={"Pause"} onClick={pauseTimer} disabled={!isRunning} style={{color: "white"}} />
